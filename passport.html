@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Изменяем кириллицу на латиницу по клику</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ebcccc;
+            text-align: center;
+        }
+        header, nav, footer {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        nav a {
+                margin: 0 15px;
+                text-decoration: none;
+                color: #766363;
+            }
+        nav a.active {
+            font-weight: bold;
+        }
+        .passport-container {
+            position: relative;
+            display: inline-block;
+        }
+        .passport-container img {
+            width: 600px;
+            height: auto;
+        }
+        .text {
+            position: absolute;
+            color: black;
+            font-size: 1.2em;
+        }
+        #issued {
+            top: 90px;
+            left: 170px;
+        }
+        #surname {
+            top: 468px;
+            left: 350px;
+        }
+        #name {
+            top: 530px;
+            left: 340px;
+        }
+        #father {
+            top: 565px;
+            left: 325px;
+        }
+        #gender {
+            top: 596px;
+            left: 234px;
+        }
+        #birthdate {
+            top: 596px;
+            left: 400px;
+        }
+        #birthplace {
+            top: 630px;
+            left: 340px;
+        }
+        #photo {
+            position: absolute;
+            top: 494px;
+            left: 25px;
+            width: 168px;
+            height: auto;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #5e5151;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Изменяем кириллицу на латиницу по клику</h1>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="Table.html">Великие античные поэты</a>
+            <a href="Text.html">Девять лириков</a>
+            <a href="Task1017.html">Задача</a>
+            <a href="passport.html" class="active">Паспорт</a>
+            <a href="Form.html">Заказать подборку сочинений</a>
+            <a href="Form2.html">Связаться с нами</a>
+            <a href="https://chs.harvard.edu/primary-source/sappho-sb" target="_blank">Центр эллинистических исследований</a>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="passport-container">
+            <img src="Passport.JPG" alt="Паспорт РФ">
+    
+            <img id="photo" src="foto.jpg" alt="Фото" title="Это моя фотография">
+    
+            <div class="text" id="issued">УМВД РОССИИ ПО ИВАНОВСКОЙ ОБЛАСТИ</div>
+            <div class="text" id="surname">Океанская</div>
+            <div class="text" id="name">Валентина</div>
+            <div class="text" id="father">Вячеславовна</div>
+            <div class="text" id="gender">Жен.</div>
+            <div class="text" id="birthdate">30.03.2005</div>
+            <div class="text" id="birthplace">Иваново</div>
+        </div>
+    
+        <div class="button-container">
+            <button id="translateButton">Поменять</button>
+        </div>
+
+        <h2 id = "console" class = "course-title" >DOM_JS. Считываем информацию из DOM</h2>
+        <img src = "passportconsole.jpg" height = "500px" >
+
+</main>
+    
+    <footer>
+        <p>© В. В. О.</p>
+    </footer>
+    
+    <script>
+        document.getElementById('translateButton').addEventListener('click', function() {
+            const issuedText = document.getElementById('issued');
+            const surnameText = document.getElementById('surname');
+            const nameText = document.getElementById('name');
+            const patronymicText = document.getElementById('father');
+            const genderText = document.getElementById('gender');
+            const birthplaceText = document.getElementById('birthplace');
+    
+            if (issuedText.innerText === 'УМВД РОССИИ ПО ИВАНОВСКОЙ ОБЛАСТИ') {
+                issuedText.innerText = 'UMVD OF THE IVANOVO REGION';
+                surnameText.innerText = 'Okeanskaya';
+                nameText.innerText = 'Valentina';
+                patronymicText.innerText = 'Vyacheslavovna';
+                genderText.innerText = 'Fem.';
+                birthplaceText.innerText = 'Ivanovo';
+            } else {
+                issuedText.innerText = 'УМВД РОССИИ ПО ИВАНОВСКОЙ ОБЛАСТИ';
+                surnameText.innerText = 'Океанская';
+                nameText.innerText = 'Валентина';
+                patronymicText.innerText = 'Вячеславовна';
+                genderText.innerText = 'Жен.';
+                birthplaceText.innerText = 'Иваново';
+            }
+
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поэзия Древней Греции</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('wallpaper.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        header, nav, footer {
+            text-align: center;
+                padding: 10px;
+                background-color: rgba(108, 141, 163, 0.192);
+        }
+        nav a {
+                margin: 0 15px;
+                text-decoration: none;
+                color: #ebcccc;
+        }
+        nav a.active {
+            font-weight: bold;
+        }
+        .form-container {
+            margin: 0 auto;
+            padding: 30px;
+            background-color: rgba(108, 141, 163, 0.39);
+            border-radius: 10px;
+            width: 50%;
+        }
+        label, input, select {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"], input[type="number"], input[type="tel"], input[type="email"], input[type="date"], input[type="password"], select {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #5e5151;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Поэзия Древней Греции</h1>
+        <nav>
+            <a href="index.html" >Главная</a>
+            <a href="Table.html">Великие античные поэты</a>
+            <a href="Text.html">Девять лириков</a>
+            <a href="Task1017.html">Задача</a>
+            <a href="passport.html">Паспорт</a>
+            <a href="Form.html" class="active" >Заказать подборку сочинений</a>
+            <a href="Form2.html">Связаться с нами</a>
+            <a href="https://chs.harvard.edu/primary-source/sappho-sb" target="_blank">Центр эллинистических исследований</a>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="form-container">
+            <h2>Форма для покупки издания сочинений древнегреческих поэтов</h2>
+            <form action="https://www.google.com/search?" id="UserEnter" name="UserEnter" target="_blank">
+                <input type="hidden" name="q" value="search">
+                <label for="username">Имя заказчика:</label>
+                <input type="text" id="username" name="username"><br><br>
+    
+                <label for="stuffnumber">Количество:</label>
+                <input type="number" id="number" name="number" min="1" max="10"><br><br>
+    
+                <label for="author">Поэт:</label>
+                <select id="mat" name="author">
+                    <option value="none">Не выбрано</option>
+                    <option value="homer">Гомер</option>
+                    <option value="hesiod">Гесиод</option>
+                    <option value="sappho">Сапфо</option>
+                    <option value="sophocles">Софокл</option>
+                    <option value="herodotes">Геродот</option>
+                </select><br><br>
+
+                <label for="language">Язык издания:</label>
+                <select id="language" name="thing">
+                    <option value="none">Не выбрано</option>
+                    <option value="rus">Русский</option>
+                    <option value="eng">Английский</option>
+                    <option value="german">Немецкий</option>
+                    <option value="ancientgreek">Древнегреческий</option>
+                    <option value="greek">Новогреческий</option>
+                    <option value="latin">Латинский</option>
+                </select><br><br>
+    
+                <label for="payment">Оплата</label><br>
+                <input type="radio" id="gem_yes" name="gem" value="yes">
+                <label for="gem_yes">Картой</label><br>
+                <input type="radio" id="gem" name="gem" value="no">
+                <label for="gem">Наличными при получении</label><br><br>
+    
+                <label for="suggest_date">Дата оформления заказа:</label>
+                <input type="date" id="suggest_date" name="suggest_date"><br><br>
+    
+                <label for="password">Пароль для редактирования:</label>
+                <input type="password" id="password" name="password"><br><br>
+    
+                <input type="hidden" name="form_type" value="jewel_making">
+    
+                <input type="submit" value="Сделать заказ">
+            </form>
+        </section>
+    </main>
+    
+    <footer>
+        <p>© В. В. О.</p>
+    </footer>
+    
+    <script>
+        document.getElementById('Form').addEventListener('submit', function(event) {
+            const defaultValues = {
+                username: 'Гость',
+                number: '2',
+                author: 'homer',
+                gem: 'no',
+                suggest_date: '2024-05-02',
+                password: 'default'
+            };
+    
+            const form = event.target;
+            for (const key in defaultValues) {
+                const input = form[key];
+                if (input && input.value === '') {
+                    input.value = defaultValues[key];
+                }
+            }
+    
+            if (!form.gem.value) {
+                form.gem.value = defaultValues.gem;
+            }
+        });
+    </script>
+    
+</body>
+</html>
