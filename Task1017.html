@@ -72,46 +72,47 @@
             <a href="https://chs.harvard.edu/primary-source/sappho-sb" target="_blank">Центр эллинистических исследований</a>
         </nav>
     </header>
-    <main> 
-        <section class="form-container">    
-            <h2>Дано вещественное число A. Вычислить x = a**4, при a < 10; x = a при a > 61, в противном случае x  = a − sin(a**2)).</h2>    
-                <label for="a">Введите значение A:</label>
-                <input type="number" id="a" step="0.01" required>
-                <button onclick="calculateX()">Вычислить</button>
-                <form action="https://www.google.com/search?" id="UserEnter" name="UserEnter" target="_blank">
-                    <input type="hidden" name="q" value="search">
-                <button onclick="sendX()">Отправить</button>
+    <main>
+        <section class="form-container">
+            <h2>Дано вещественное число A. Вычислить x = a^4, при a < 10; x = a при a > 61, в противном случае x = a − sin(a^2).</h2>
+            <label for="a">Введите значение A:</label>
+            <input type="number" id="a" step="0.01" required>
+            <button onclick="calculateX()">Вычислить</button>
+            
+            <!-- Форма отправки результата на сервер -->
+            <form action="https://www.google.com/search" id="UserEnter" method="get" target="_blank">
+                <input type="hidden" name="q" id="queryParam">
+                <button type="button" onclick="sendX()">Отправить</button>
+            </form>
+    
             <p class="result" id="result">Результат: </p>
-        </section>  
+        </section>
     </main>
-
-    <footer>
-        <p>© В. В. О.</p>
-    </footer>
-
+    
     <script>
         function calculateX() {
             const a = parseFloat(document.getElementById("a").value);
             let x;
-
+    
             if (a < 10) {
-                x = Math.pow(a, 4);
+                x = Math.pow(a, 4);  // a^4
             } else if (a > 61) {
                 x = a;
             } else {
-                x = a - Math.sin(Math.pow(a, 2));
+                x = a - Math.sin(Math.pow(a, 2));  // a − sin(a^2)
             }
-
+    
+            // Выводим результат на страницу с точностью до 4 знаков
             document.getElementById("result").innerText = "Результат: x = " + x.toFixed(4);
-
+            
+            // Обновляем значение скрытого поля формы с результатом
+            document.getElementById("queryParam").value = "Решение задачи: x = " + x.toFixed(4);
         }
-
-        function send() {
-            if (check) {
-                document.getElementById("UserEnter").submit();
-            }
+    
+        function sendX() {
+            // Отправляем форму с вычисленным результатом
+            document.getElementById("UserEnter").submit();
         }
-
     </script>
     
 </body>
